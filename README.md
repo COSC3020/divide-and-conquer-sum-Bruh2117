@@ -47,4 +47,4 @@ $T(n) = 9(3T(\frac{n}{27}))
 We see a pattern emerge, being 
 $T(n) = 3^{i}T(\frac{n}{3^{i}})$, where $i > 0$ 
 
-So if we choose $i = log_{3}(n), T(n) = 3^{log_{3}(n)} \cdot T(\frac{n}{3^{log_{3}(n)}}) = n \in \Theta(n)$
+So if we choose $i = log_{3}(n), T(n) = 3^{log_{3}(n)} \cdot T(\frac{n}{3^{log_{3}(n)}}) = n \cdot T(\frac{n}{n}) = n \cdot T(1) = n \in \Theta(n)$
