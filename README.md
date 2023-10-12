@@ -26,3 +26,25 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+In the base cases where we have 3 or less elements, we add all of them together which takes a constant time to do. Otherwise, the runtime would be $3T(\frac{n}{3})$ since we recursively sum up each third of the array ($T(\frac{n}{3})$) 3 times, then add them all together at the end which takes another constant time. 
+
+As a recurrence relation, this would look like: 
+$T(n) = 1$ for $n \leq 3$   and 
+$T(n) = 3T(\frac{n}{3})$ for $n > 3$ 
+
+To solve the recurrence relation, we see that 
+$T(n) = 3T(\frac{n}{3})$ 
+
+And putting T(n) back in, we get 
+$T(n) = 3(3T(\frac{n}{9}))
+      = 9T(\frac{n}{9})$
+
+Doing that again
+$T(n) = 9(3T(\frac{n}{27}))
+      = 27T(\frac{n}{27})$
+
+We see a pattern emerge, being 
+$T(n) = 3^{i}T(\frac{n}{3^{i}})$, where $i > 0$ 
+
+So if we choose $i = log_{3}(n), T(n) = 3^{log_{3}(n)} \cdot T(\frac{n}{3^{log_{3}(n)}}) = n \in \Theta(n)$
